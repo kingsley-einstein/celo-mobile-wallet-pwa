@@ -1,4 +1,5 @@
 import React from "react";
+import bcrypt from "bcryptjs";
 // import * as util from "../../wallet";
 import Specifics from "../../specifics";
 
@@ -18,12 +19,15 @@ const CreatePw = ({ onCompleted }) => {
  };
 
  const verifySucceed = pass => {
-  console.log("Succeed " + pass);
+  // console.log("Succeed " + pass);
+  const salt = bcrypt.genSaltSync(4);
+  const hash = bcrypt.hashSync(pass, salt);
+  localStorage.setItem("pw", hash);
   onCompleted();
  };
 
  const verifyFail = () => {
-  console.log("Failed");
+  // console.log("Failed");
  };
 
  return (

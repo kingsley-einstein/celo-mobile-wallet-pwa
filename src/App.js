@@ -1,10 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
-import Pages from "./pages";
+import Routes from "./router";
 import "./App.css";
 
-const App = () => {
- return <Pages.CreateWallet />;
-};
+const App = () => <Routes />;
 
 export default App;
